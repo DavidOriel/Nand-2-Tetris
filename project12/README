@@ -1,0 +1,25 @@
+david.oriel
+===============================================================================
+David Oriel, ID 205437643, david.oriel@mail.huji.ac.il
+===============================================================================
+
+                           Project 12 -  operation system
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Math.jack - math class for the OS
+Memory.jack - memory class for the OS.
+String.jack - String class for the OS.
+Screen.jack - screen class for the OS.
+Keyboard.jack - keyboard class for the OS.
+Output.jack - output class for the OS.
+Array.jack - array class for the OS.
+Sys.jack - system class, here we will init all the other classes(exept string).
+
+
+Remarks
+-------
+No remarks for this project.
