@@ -1,0 +1,22 @@
+david.oriel
+===============================================================================
+David Oriel, ID 205437643, david.oriel@mail.huji.ac.il
+===============================================================================
+
+                           Project 8 -  extended vm to asm python translator
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+VMtranslator - the python file that translate a given vm code into a asm code' and after that write the translation into a different file.
+the file contains two classes - the parser class that proccessing the file and deleting any unusfull spaces, tabs and comments.
+and the writer class that actually taking care of the translation.
+the program will run by calling the main function.
+in this project we added the option for traslating more vm commands, the function, functioncall, if-goto, goto, label and return commands.
+
+
+Remarks
+-------
+No remarks for this project.
