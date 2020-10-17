@@ -1,0 +1,53 @@
+CHIP Mul{
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+	ShiftLeft(in = a, out = out1);
+	ShiftLeft(in = out1, out = out2);
+	ShiftLeft(in = out2, out = out3);
+	ShiftLeft(in = out3, out = out4);
+	ShiftLeft(in = out4, out = out5);
+	ShiftLeft(in = out5, out = out6);
+	ShiftLeft(in = out6, out = out7);
+	ShiftLeft(in = out7, out = out8);
+	ShiftLeft(in = out8, out = out9);
+	ShiftLeft(in = out9, out = out10);
+	ShiftLeft(in = out10, out = out11);
+	ShiftLeft(in = out11, out = out12);
+	ShiftLeft(in = out12, out = out13);
+	ShiftLeft(in = out13, out = out14);
+	Mux16( a = false , b = a, sel= b[0], out = mux1);
+	Mux16( a = false , b = out1, sel= b[1], out = mux2);
+	Mux16( a = false , b = out2, sel= b[2], out = mux3);
+	Mux16( a = false , b = out3, sel= b[3], out = mux4);
+	Mux16( a = false , b = out4, sel= b[4], out = mux5);
+	Mux16( a = false , b = out5, sel= b[5], out = mux6);
+	Mux16( a = false , b = out6, sel= b[6], out = mux7);
+	Mux16( a = false , b = out7, sel= b[7], out = mux8);
+	Mux16( a = false , b = out8, sel= b[8], out = mux9);
+	Mux16( a = false , b = out9, sel= b[9], out = mux10);
+	Mux16( a = false , b = out10, sel= b[10], out = mux11);
+	Mux16( a = false , b = out11, sel= b[11], out = mux12);
+	Mux16( a = false , b = out12, sel= b[12], out = mux13);
+	Mux16( a = false , b = out13, sel= b[13], out = mux14);
+	Mux16( a = false , b = out14, sel= b[14], out = mux15);
+	Add16(a = mux1, b= mux2, out= o1);
+	Add16(a = o1, b= mux3, out= o2);
+	Add16(a = o2, b= mux4, out= o3);
+	Add16(a = o3, b= mux5, out= o4);
+	Add16(a = o4, b= mux6, out= o5);
+	Add16(a = o5, b= mux7, out= o6);
+	Add16(a = o6, b= mux8, out= o7);
+	Add16(a = o7, b= mux9, out= o8);
+	Add16(a = o8, b= mux10, out= o9);
+	Add16(a = o9, b= mux11, out= o10);
+	Add16(a = o10, b= mux12, out= o11);
+	Add16(a = o11, b= mux13, out= o12);
+	Add16(a = o12, b= mux14, out= o13);
+	Add16(a = o13, b= mux15, out= out);
+
+	
+
+	
+}
