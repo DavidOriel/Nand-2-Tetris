@@ -1,0 +1,19 @@
+yarinsch david.oriel
+===============================================================================
+Yarin Schiller, ID 313285090, yarin.schiller@mail.huji.ac.il
+David Oriel, ID 205437643, david.oriel@mail.huji.ac.il
+===============================================================================
+
+                           Project 6 - A python file that runs an assembler
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+HackAssembler - My code for the assembler interpretation. I chose to use Python as my high-level programing language in this project because
+of the advantages of Python as a string manipulator and editing abilities. I have four methods in the the file: Main - runs the methos in the correct order. Parser - gets the file text and removes spaces, \n's, \t's, \r's, and comments. SymbolTable - Add symbols that symbols jump or variables for further use. And a Code method - that translates the parsed text to a binary code according to a built in dictionary that translates the asm commands to a binary hack commands. The code is easy to understand, and short.
+
+Remarks
+-------
+No remarks for this project.
