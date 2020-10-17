@@ -1,0 +1,53 @@
+/**
+* This chip is an extension of the book CPU by using the extended ALU.
+* More specificly if instruction[15]==0 or (instruction[14] and instruction[13] equals 1)
+* the CpuMul behave exactly as the book CPU.
+* While if it is C instruction and instruction[13] == 0 the output will be D*A/M 
+* (according to instruction[12]).
+* Moreover, if it is c instruction and instruction[14] == 0 it will behave as follows:
+*
+* instruction:  | 12 | 11 | 10 |
+* _____________________________
+* shift left D  | 0  | 1  | 1  |
+* shift left A  | 0  | 1  | 0  |
+* shift left M  | 1  | 1  | 0  |
+* shift right D | 0  | 0  | 1  |
+* shift right A | 0  | 0  | 0  |
+* shift right M | 1  | 0  | 0  |
+**/
+
+CHIP CpuMul{
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset=1) or continue executing
+                         // the current program (reset=0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write into M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+    Not(in=instruction[15], out=AasAddress);
+    Mux16(a=ALUout, b=instruction, sel=AasAddress, out=InA);
+    Or(a=instruction[5], b=AasAddress, out=ALoad); // This checks if the AReg asked to be loaded
+    ARegister(in=InA, load=ALoad, out[0..14]=addressM, out=A); // A always holds the address, so we always output it to the addressM
+    Mux16(a=A, b=inM, sel=AorM, out=MuxAM);
+    And(a=instruction[15], b=instruction[12], out=AorM);
+    And(a=instruction[15], b=instruction[4], out=DLoad);
+    DRegister(in=ALUout, load=DLoad, out=D);
+    ExtendAlu(x=D, y=MuxAM,instruction[7..8]=instruction[13..14], instruction[6]=false, instruction[0..5]=instruction[6..11], out=outM, out=ALUout, ng=ng, zr=zr);
+    PC(in=A, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
+    Or(a=ng, b=zr, out=NotPositive);
+    Not(in=NotPositive, out=Positive);
+    And(a=instruction[0], b=Positive, out=Cond1);
+    And(a=instruction[1], b=zr, out=Cond2);
+    And(a=instruction[2], b=ng, out=Cond3);
+    Or(a=Cond1, b=Cond2, out=Cond1Or2);
+    Or(a=Cond1Or2, b=Cond3, out=JMPS);
+    And(a=instruction[15], b=JMPS, out=loadPC);
+    And(a=instruction[15], b=instruction[3], out=writeM);
+
+}

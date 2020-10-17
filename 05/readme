@@ -1,0 +1,24 @@
+yarinsch david.oriel
+===============================================================================
+Yarin Schiller, ID 313285090, yarin.schiller@mail.huji.ac.il
+David Oriel, ID 205437643, david.oriel@mail.huji.ac.il
+
+===============================================================================
+
+                           Project 5 
+                           ---------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+Memory.hdl - the memory of the hack computer.
+CPU.hdl - the chip that reads hack lenguage and managing the instructions by getting two registers and a pc chip.
+Computer.hdl - the hack computer itself. build from three chips - ROM32k, the Memory chip and the CPU chip. 
+ExtendAlu.hdl - that chip gets instructions and does operation including shifts between two intputs - x and y.
+CpuMul- extension of the cpu , has more options then the cpu and operates according thoo the instrunctions.				
+
+-------
+the contents of that project are the chips that actually build the hack computer.
+In that project we used many chips we build in the last weeks, and we could have seen 
+how a real computer is build from.
