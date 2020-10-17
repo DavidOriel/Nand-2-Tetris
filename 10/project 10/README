@@ -1,0 +1,20 @@
+david.oriel
+===============================================================================
+David Oriel, ID 205437643, david.oriel@mail.huji.ac.il
+===============================================================================
+
+                           Project 10 -  jack to xml translator
+                           ----------------------- 
+  
+
+Submitted Files
+---------------
+README - This file.
+CompilationEngine - python file for managing the translation by using the tokenizer file class.
+Tokenizer - handeling a text and makes it ready after parsing it and get all the tokens/
+jackanalyzer - main class for running the program.
+
+
+Remarks
+-------
+No remarks for this project.
